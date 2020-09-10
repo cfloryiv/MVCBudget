@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MVCBudget.Models.Sale>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Sales Report</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Period)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Budget)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sales)
+            </th>
+            <th>
+                Remaining
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="Trans" asp-action="Index" asp-route-Name="@item.Name" asp-route-Period="@item.Period">@item.Name</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Period)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Budget)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sales)
+                </td>
+                <td>
+                    @(item.Budget - item.Sales)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

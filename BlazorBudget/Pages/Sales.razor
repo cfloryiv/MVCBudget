@@ -1,0 +1,40 @@
+﻿@page "/sales"
+@inherits SalesBase
+
+<h1 class="page-title">Sales Report</h1>
+
+<p>@Message</p>
+
+@if (salesx == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Period</th>
+            <th>Budget</th>
+            <th>Sales</th>
+            <th>Net</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var sale in salesx)
+        {
+            <tr>
+                <td>@sale.Period</td>
+                <td>@sale.Budget</td>
+                <td>@sale.Sales</td>
+                <td>@(sale.Budget-sale.Sales)</td>
+                <td><a href="@($"periodReport/{sale.Period}")" class="btn btn-primary table-btn">
+                    <i class="far fa-plus-square"></i>
+                    </a></td>
+            
+            </tr>
+        }
+        </tbody>
+    </table>
+}

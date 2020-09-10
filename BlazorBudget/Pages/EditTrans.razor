@@ -1,0 +1,52 @@
+﻿@page "/editTrans"
+@page "/editTrans/{id:int}"
+@inherits EditTransBase
+
+<section>
+    <div class="entity-edit">
+        <h1 class="page-title">Create a New Transaction</h1>
+        @if (tran == null)
+        {
+            <p1>Loading...</p1>
+        }
+        else
+        {
+    <EditForm Model="@tran" OnValidSubmit="HandleSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group row">
+            <label for="ID" class="col-sm-3">ID: </label>
+            <InputNumber id="ID" class="form-control col-sm-8" @bind-Value="@tran.ID" placeholder="Enter ID"></InputNumber>
+        </div>
+        <div class="form-group row">
+            <label for="Name" class="col-sm-3">Name: </label>
+            <InputSelect id="Name" class="form-control col-sm-8" @bind-Value="@tran.Name" placeholder="Enter Name">
+                @foreach (var account in accounts)
+                {
+                    <option>@account.Name</option>
+                }
+            </InputSelect>
+        </div>
+        <div class="form-group row">
+            <label for="Period" class="col-sm-3">Period: </label>
+            <InputText id="Period" class="form-control col-sm-8" @bind-Value="@tran.Period" placeholder="Enter Period"></InputText>
+        </div>
+        <div class="form-group row">
+            <label for="Date" class="col-sm-3">Date: </label>
+            <InputDate id="Date" class="form-control col-sm-8" @bind-Value="@tran.Trans_Date" placeholder="Enter Date"></InputDate>
+        </div>
+        <div class="form-group row">
+            <label for="Amount" class="col-sm-3">Amount: </label>
+            <InputNumber id="Amount" class="form-control col-sm-8" @bind-Value="@tran.Amount" placeholder="Enter Amount"></InputNumber>
+        </div>
+        <div class="form-group row">
+            <label for="Note" class="col-sm-3">Note: </label>
+            <InputText id="Note" class="form-control col-sm-8" @bind-Value="@tran.Note" placeholder="Enter Note"></InputText>
+        </div>
+        <button type="submit" class="btn btn-primary edit-btn">Create</button>
+        <button class="btn btn-default" @onclick="CancelHandler">Cancel</button>
+    </EditForm>
+        }
+    </div>
+</section>

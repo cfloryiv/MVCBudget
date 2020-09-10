@@ -1,0 +1,40 @@
+﻿@page "/accounts"
+@inherits AccountsBase
+
+
+<h1 class="page-title">All Accounts</h1>
+
+<p>@Message</p>
+
+@if (accounts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+                <th>Account ID</th>
+                <th>Name</th>
+                <th>Budget</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var account in accounts)
+            {
+                <tr>
+                    <td>@account.ID</td>
+                    <td>@account.Name</td>
+                    <td>@account.Budget</td>
+                    <td>
+                        <a href="@($"accountEdit/{account.ID}")" class="btn btn-primary table-btn">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

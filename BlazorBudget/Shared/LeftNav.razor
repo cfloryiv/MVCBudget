@@ -1,0 +1,108 @@
+﻿<div class="bg-light" id="sidebar-wrapper">
+    <div class="profile-picture">
+        <img class="img-responsive" src="/images/Bookkeeping.jfif" />
+    </div>
+    <div class="menu list-group list-group-flush">
+        <nav id="sidebar">
+            <ul class="list-unstyled components">
+                <li>
+                    <NavLink href="">
+                        Home
+                    </NavLink>
+                </li>
+                <li>
+                    <a @onclick="(() => ToggleNav1(1))" data-toggle="collapse" class="dropdown-toggle">Accounts</a>
+                    <ul class="list-unstyled sub-menu @(this.IsHidden1 ? "toggle-hide" : "toggle-show")" id="tasks">
+                        <li>
+                            <NavLink href="/accounts">
+                                View Accounts
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink href="/accountEdit">
+                                Add new Account
+                            </NavLink>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a @onclick="(() => ToggleNav1(2))" data-toggle="collapse" class="dropdown-toggle">Reports</a>
+                    <ul class="list-unstyled sub-menu @(this.IsHidden2 ? "toggle-hide" : "toggle-show")" id="redports">
+                        <li>
+                            <NavLink href="/sales">
+                                View Main Report
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink href="/periodReport">
+                                View Period report
+                            </NavLink>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a @onclick="(() => ToggleNav1(3))" data-toggle="collapse" class="dropdown-toggle">Configuration</a>
+                    <ul class="list-unstyled sub-menu @(this.IsHidden3 ? "toggle-hide" : "toggle-show")" id="config">
+                        <li>
+                            <NavLink href="/config">
+                                View Configuration
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink href="/editPeriod">
+                                Edit Period
+                            </NavLink>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a @onclick="(() => ToggleNav1(4))" data-toggle="collapse" class="dropdown-toggle">Transactions</a>
+                    <ul class="list-unstyled sub-menu @(this.IsHidden4 ? "toggle-hide" : "toggle-show")" id="trans">
+                        <li>
+                            <NavLink href="/editTrans">
+                                Create Transaction
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink href="/startNewPeriod">
+                                Start New Period
+                            </NavLink>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+</div>
+
+@code{
+    public bool IsHidden1 { get; set; } = true;
+    public bool IsHidden2 { get; set; } = true;
+    public bool IsHidden3 { get; set; } = true;
+    public bool IsHidden4 { get; set; } = true;
+    public bool IsHidden5 { get; set; } = true;
+
+    public void ToggleNav1(int navId)
+    {
+        switch (navId)
+        {
+            case 1:
+                IsHidden1 = !IsHidden1;
+                break;
+            case 2:
+                IsHidden2 = !IsHidden2;
+                break;
+            case 3:
+                IsHidden3 = !IsHidden3;
+                break;
+            case 4:
+                IsHidden4 = !IsHidden4;
+                break;
+            case 5:
+                IsHidden5 = !IsHidden5;
+                break;
+        }
+
+    }
+}

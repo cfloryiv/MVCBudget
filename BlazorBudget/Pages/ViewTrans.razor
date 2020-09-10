@@ -1,0 +1,44 @@
+﻿@page "/viewTrans"
+@page "/viewTrans/{accountName}/{period}"
+@inherits ViewTransBase
+
+<h1 class="page-title">Transactions Report</h1>
+
+<p>@Message</p>
+
+@if (trans == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Period</th>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Note</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var tran in trans)
+        {
+            <tr>
+                <td>@tran.ID</td>
+                <td>@tran.Period</td>
+                <td>@tran.Name</td>
+                <td>@tran.Amount</td>
+                <td>@tran.Note</td>
+                <td>
+                    <a href="@($"editTrans/{tran.ID}")" class="btn btn-primary table-btn">
+                        <i class="far fa-plus-square"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

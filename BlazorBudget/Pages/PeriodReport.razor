@@ -1,0 +1,44 @@
+﻿@page "/periodReport"
+@page "/periodReport/{period}"
+@inherits PeriodReportBase
+
+<h1 class="page-title">Sales Report</h1>
+
+<p>@Message</p>
+
+@if (sales == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Period</th>
+            <th>Name</th>
+            <th>Budget</th>
+            <th>Sales</th>
+            <th>Net</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var sale in sales)
+        {
+            <tr>
+                <td>@sale.Period</td>
+                <td>@sale.Name</td>
+                <td>@sale.Budget</td>
+                <td>@sale.Sales</td>
+                <td>@(sale.Budget - sale.Sales)</td>
+                <td>
+                    <a href="@($"viewTrans/{sale.Name}/{sale.Period}")" class="btn btn-primary table-btn">
+                    <i class="far fa-plus-square"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

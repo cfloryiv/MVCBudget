@@ -1,0 +1,27 @@
+﻿@page "/editPeriod"
+@using Microsoft.EntityFrameworkCore.Query
+@inherits ConfigEditBase
+
+<section>
+  
+    <div class="entity-edit">
+        <h1 class="page-title">Edit Period</h1>
+
+        @if (@config==null) {
+            <p>Loading...</p>
+        }
+        else
+        {
+            <EditForm Model="@config" OnValidSubmit="HandleSubmit">
+                <DataAnnotationsValidator/>
+                <ValidationSummary/>
+                <div class="form-group row">
+                    <label for="Period" class="col-sm-3">Period: </label>
+                    <InputText id="Period" class="form-control col-sm-8" @bind-Value="@config.Value" placeholder="Enter Period"></InputText>
+                </div>
+                <button type="submit" class="btn btn-primary edit-btn">Save Period</button>
+                <button class="btn btn-default" @onclick="CancelHandler">Cancel</button>
+            </EditForm>
+        }
+</div>
+</section>

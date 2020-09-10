@@ -1,0 +1,40 @@
+﻿@page "/accountEdit"
+@page "/accountEdit/{accountID:int}"
+@inherits AccountEditBase
+
+<section>
+
+    <div class="entity-edit">
+        <h1 class="page-title">Add New Account</h1>
+        @if (@account == null)
+        {
+            <p1>Loading...</p1>
+        }
+        else
+        {
+    <EditForm Model="@account" OnValidSubmit="HandleSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group row">
+            <label for="ID" class="col-sm-3">Account ID: </label>
+            <InputNumber id="ID" class="form-control col-sm-8" @bind-Value="@account.ID" placeholder="Enter ID"></InputNumber>
+        </div>
+        <div class="form-group row">
+            <label for="Description" class="col-sm-3">Description: </label>
+            <InputText id="Description" class="form-control col-sm-8" @bind-Value="@account.Name" placeholder="Enter Description"></InputText>
+        </div>
+        <div class="form-group row">
+            <label for="Budget" class="col-sm-3">Budget: </label>
+            <InputNumber id="Budget" class="form-control col-sm-8" @bind-Value="@account.Budget" placeholder="Enter Budget"></InputNumber>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary edit-btn">Save Account</button>
+        <button class="btn btn-danger edit-btn" @onclick="DeleteAccount">Delete Account</button>
+    </EditForm>
+        }
+    </div>
+</section>
+

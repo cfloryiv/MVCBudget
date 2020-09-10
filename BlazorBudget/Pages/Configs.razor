@@ -1,0 +1,37 @@
+﻿@page "/config"
+@inherits ConfigsBase
+
+
+<h1 class="page-title">Configurations</h1>
+
+<p>@Message</p>
+
+@if (configs == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Config ID</th>
+            <th>Key</th>
+            <th>Value</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var config in configs)
+        {
+            <tr>
+                <td>@config.ID</td>
+                <td>@config.Key</td>
+                <td>@config.Value</td>
+                <td>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

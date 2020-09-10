@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MVCBudget.Models.AccountReport>
+
+    @{
+        ViewData["Title"] = "Report";
+    }
+
+    <h2>Account Sales Report</h2>
+
+
+    <a asp-controller="Sales" asp-action="PeriodReport">Period Report</a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sales)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Budget)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Net)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    <a asp-controller="Sales" asp-action="IndexbyName" asp-route-Name="@item.Name">@item.Name</a>
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sales)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Budget)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Net)
+                </td>
+
+            </tr>
+            }
+        </tbody>
+    </table>

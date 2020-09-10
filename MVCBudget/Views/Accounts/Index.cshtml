@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MVCBudget.Models.Account>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Accounts</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form asp-action="MonthEndPost">
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Budget)
+            </th>
+            <th>
+                Peload Amount
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Budget)
+            </td>
+            <td>
+                <div class="form-group">
+                 
+                    <input asp-for="pl-@item.Name" value="0" class="form-control" />
+ 
+                </div>
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    </form>

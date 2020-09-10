@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MVCBudget.Models.Config>
+@using System.Web.Helpers;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Configuration Parameters</h2>
+
+<p>
+    <button class="btn btn-primary" asp-action="Create">Create New</button>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Key)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Value)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Key)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h2>Import Menu</h2>
+<div>
+    <a asp-controller="Accounts" asp-action="Importx">Import Accounts</a>
+</div>
+<div>
+    <a asp-controller="Sales" asp-action="Importx">Import Sales</a>
+</div>
+<div>
+    <a asp-controller="Trans" asp-action="Importx">Import Transactions</a>
+</div>
+
