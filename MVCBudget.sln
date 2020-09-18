@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCCoreTest", "MVCCoreTest\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTools", "TestTools\TestTools.csproj", "{C059164F-5389-46DB-9C28-6F93F2FB457A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorBudget.Tests", "BlazorBudget.Tests\BlazorBudget.Tests.csproj", "{AB979354-A9AF-4836-9A81-390577963C83}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{50D7CA9C-16AB-4BD3-AEA7-F0215A683D1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,9 +43,16 @@ Global
 		{C059164F-5389-46DB-9C28-6F93F2FB457A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C059164F-5389-46DB-9C28-6F93F2FB457A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C059164F-5389-46DB-9C28-6F93F2FB457A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB979354-A9AF-4836-9A81-390577963C83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB979354-A9AF-4836-9A81-390577963C83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB979354-A9AF-4836-9A81-390577963C83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB979354-A9AF-4836-9A81-390577963C83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AB979354-A9AF-4836-9A81-390577963C83} = {50D7CA9C-16AB-4BD3-AEA7-F0215A683D1A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E185E2E0-F86C-4387-854F-4C9BAAF83A03}
