@@ -46,7 +46,7 @@ namespace BlazorBudget.Pages
             {
 
                 sales = (await AccountDataService.GetSales(Period))
-
+                    .OrderBy(s=>s.Name)
                     .ToList();
             }
             catch (Exception e)

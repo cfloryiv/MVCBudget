@@ -20,6 +20,7 @@ namespace APIBudget.Repositories
         void DeleteAccount(Account account);
         void AddAccount(Account account);
         void UpdateAccount(Account account);
+        void StartNewPeriod();
         bool Save();
         void Dispose();
     }

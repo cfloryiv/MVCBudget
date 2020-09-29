@@ -52,5 +52,14 @@ namespace APIBudget.Controllers
 
             return NoContent(); //success
         }
+        [HttpPut("newperiod")]
+        public IActionResult NewPeriod()
+        {
+    
+
+            _budgetLibraryRepository.StartNewPeriod();
+
+            return NoContent(); //success
+        }
     }
 }
